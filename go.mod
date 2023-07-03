@@ -1,4 +1,4 @@
-module majordome_back
+module majordome
 
 go 1.15
 

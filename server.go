@@ -5,8 +5,8 @@ import (
 	"log"
 	"net"
 
-	con_ "aimi-landing-back-go/config"
-	"aimi-landing-back-go/controller"
+	con_ "majordome/config"
+	"majordome/controller"
 )
 
 func main() {

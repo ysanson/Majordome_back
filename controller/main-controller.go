@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"majordome_back/internal/society"
+	"majordome/internal/society"
 
 	"google.golang.org/grpc"
 
-	pb "majordome_back/internal/protorender"
+	pb "majordome/internal/protorender"
 )
 
 type Controller struct {

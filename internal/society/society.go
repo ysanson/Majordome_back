@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"majordome_back/domain/entity"
-	g_ "majordome_back/domain/repository/gorm"
+	"majordome/domain/entity"
+	g_ "majordome/domain/repository/gorm"
 
 	"github.com/jinzhu/gorm"
 
@@ -13,7 +13,7 @@ import (
 
 	"errors"
 
-	pb "majordome_back/internal/protorender"
+	pb "majordome/internal/protorender"
 )
 
 type Server struct {

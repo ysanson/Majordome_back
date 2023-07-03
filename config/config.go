@@ -7,14 +7,6 @@ type Config struct {
 	Port    int32  `default:"8000"`
 	DB      struct {
 		Use   string `default:"postgres"`
-		Mysql []struct {
-			Enabled  bool   `default:"true"`
-			Host     string `default:"localhost"`
-			Port     string `default:"3306"`
-			UserName string `default:"root"`
-			Password string `default:"xxxxxxxx"`
-			Database string `default:"xxxxxxxx"`
-		}
 		Postgres []struct {
 			Enabled  bool   `default:"true"`
 			Host     string `default:"localhost"`
