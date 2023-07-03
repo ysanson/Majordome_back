@@ -1,7 +1,7 @@
 package gorm
 
 import (
-	"aimi-landing-back-go/config"
+	"majordome_back/config"
 
 	"github.com/jinzhu/gorm"
 

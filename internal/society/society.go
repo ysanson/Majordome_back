@@ -4,8 +4,8 @@ import (
 	"context"
 	"log"
 
-	"aimi-landing-back-go/domain/entity"
-	g_ "aimi-landing-back-go/domain/repository/gorm"
+	"majordome_back/domain/entity"
+	g_ "majordome_back/domain/repository/gorm"
 
 	"github.com/jinzhu/gorm"
 
@@ -13,7 +13,7 @@ import (
 
 	"errors"
 
-	pb "aimi-landing-back-go/internal/protorender"
+	pb "majordome_back/internal/protorender"
 )
 
 type Server struct {

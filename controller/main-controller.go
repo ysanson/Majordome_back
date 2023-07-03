@@ -1,11 +1,11 @@
 package controller
 
 import (
-	"aimi-landing-back-go/internal/society"
+	"majordome_back/internal/society"
 
 	"google.golang.org/grpc"
 
-	pb "aimi-landing-back-go/internal/protorender"
+	pb "majordome_back/internal/protorender"
 )
 
 type Controller struct {

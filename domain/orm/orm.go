@@ -1,11 +1,11 @@
 package orm
 
 import (
-	g_ "aimi-landing-back-go/domain/repository/gorm"
+	g_ "majordome_back/domain/repository/gorm"
 
 	"github.com/jinzhu/gorm"
 
-	"aimi-landing-back-go/domain/entity"
+	"majordome_back/domain/entity"
 )
 
 // db, _ := gorm.NewDb()
