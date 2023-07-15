@@ -2,7 +2,7 @@ syntax = "proto3";
 
 package protorender;
 
-option go_package = "protorender;protorender";
+option go_package = "./protorender/item";
 
 message Realisation {
     fixed32 id = 1;

@@ -13,7 +13,7 @@ import (
 
 	"errors"
 
-	pb "majordome/internal/protorender"
+	pb "majordome/internal/protorender/society"
 )
 
 type Server struct {
@@ -60,7 +60,7 @@ func (s *Server) SimpleRPC(ctx context.Context, in *pb.RequestSocieties) (*pb.Re
 	return &pb.ResponseSocieties{Societies: societies_}, nil
 }
 
-func (s *Server) ServerSideStreamingRPC(in *pb.RequestSocieties, stream pb.SocietyService_ServerSideStreamingRPCServer) error {
+func (s *Server) ServerSideStreamingRPC(in *pb.RequestSocieties, stream pb.RequestSocieties) error {
 	log.Printf("Receive message body from client: %v", in)
 
 	societies := make([]*entity.Society, 0)
