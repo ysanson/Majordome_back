@@ -2,7 +2,7 @@ package controller
 
 import (
 	"majordome/internal/society"
-	
+
 	"majordome/internal/item"
 
 	"google.golang.org/grpc"
@@ -28,7 +28,7 @@ func (c *Controller) NewController() *grpc.Server {
 	grpcServer := grpc.NewServer()
 
 	// society.RegisterSocietyServiceServer(grpcServer, c.Society)
-	pb.RegisterSocietyServiceServer(grpcServer, c.Society)
+	pb.RegisterItemServiceServer(grpcServer, c.Item)
 
 	return grpcServer
 }

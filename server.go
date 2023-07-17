@@ -21,7 +21,7 @@ func main() {
 		log.Fatalf("failed to listen: %v", err)
 	}
 
-	c := &controller.ItemController{}
+	c := &controller.Controller{}
 	g := c.NewController()
 
 	if err := g.Serve(lis); err != nil {

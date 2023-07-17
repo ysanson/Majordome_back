@@ -1,3 +1,3 @@
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:/usr/local/go/bin
-protoc -I proto --go_out=internal ./proto/*.proto
+protoc -I proto --go_out=internal --go-grpc_out=internal ./proto/*.proto
