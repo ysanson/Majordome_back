@@ -1,0 +1,11 @@
+syntax = "proto3";
+
+package api.v1.tracker;
+
+option go_package = "majordome/api/v1/tracker;tracker";
+option java_multiple_files = true;
+option java_package = "api.v1.tracker";
+
+enum ErrorReason {
+  ITEM_NOT_FOUND = 0;
+}

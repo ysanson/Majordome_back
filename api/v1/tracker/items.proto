@@ -1,0 +1,87 @@
+syntax = "proto3";
+
+package api.v1.tracker;
+
+import "google/api/annotations.proto";
+
+option go_package = "majordome/api/v1/tracker;tracker";
+option java_multiple_files = true;
+option java_package = "api.v1.tracker";
+
+service Items {
+    rpc GetItems (GetItemsRequest) returns (GetItemsResponse) {
+		option (google.api.http) = {
+			get: "/items?page={page}&per_page={per_page}"
+		};
+	}
+    rpc GetItemsStream (GetItemsRequest) returns (stream Item) {}
+    rpc GetItem (GetItemRequest) returns (Item) {
+		option (google.api.http) = {
+			get: "/items/{id}"
+		};}
+    rpc CreateItem (CreateItemRequest) returns (Item) {
+		option (google.api.http) = {
+			post: "/items"
+			body: "*"
+		};
+	}
+    rpc UpdateItem (UpdateItemRequest) returns (Item) {
+		option (google.api.http) = {
+			put: "/items/{id}"
+			body: "*"
+		};
+	}
+    rpc DeleteItem (GetItemRequest) returns (Item) {
+		option (google.api.http) = {
+			delete: "/items/{id}"
+		};
+	}
+    rpc NewRealisation (GetItemRequest) returns (Realisation) {
+		option (google.api.http) = {
+			post: "/items/{id}/realisations"
+			body: "*"
+		};
+	}
+}
+message Realisation {
+    fixed32 id = 1;
+    fixed32 item_id = 2;
+    string created_at = 3;
+}
+
+message Item {
+    fixed32 id = 1;
+    string name = 2;
+    string logo = 3;
+    string description = 4;
+    string user_email = 5;
+    string created_at = 6;
+    repeated Realisation realisations = 7;
+}
+
+message GetItemsRequest {
+    fixed32 page = 1;
+    fixed32 per_page = 2;
+}
+
+message CreateItemRequest {
+    string name = 1;
+    string logo = 2;
+    string description = 3;
+    string user_email = 4;
+}
+
+message UpdateItemRequest {
+    fixed32 id = 1;
+    string name = 2;
+    string logo = 3;
+    string description = 4;
+}
+
+message GetItemRequest {
+    fixed32 id = 1;
+}
+
+message GetItemsResponse {
+    repeated Item items = 1;
+}
