@@ -7,8 +7,10 @@ import (
 	"majordome/internal/service"
 
 	"github.com/go-kratos/kratos/v2/log"
+	"github.com/go-kratos/kratos/v2/middleware/logging"
 	"github.com/go-kratos/kratos/v2/middleware/recovery"
 	"github.com/go-kratos/kratos/v2/transport/http"
+	"github.com/go-kratos/swagger-api/openapiv2"
 )
 
 // NewHTTPServer new an HTTP server.
@@ -16,6 +18,7 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, items *servi
 	var opts = []http.ServerOption{
 		http.Middleware(
 			recovery.Recovery(),
+			logging.Server(logger),
 		),
 	}
 	if c.Http.Network != "" {
@@ -27,7 +30,9 @@ func NewHTTPServer(c *conf.Server, greeter *service.GreeterService, items *servi
 	if c.Http.Timeout != nil {
 		opts = append(opts, http.Timeout(c.Http.Timeout.AsDuration()))
 	}
+	h := openapiv2.NewHandler()
 	srv := http.NewServer(opts...)
+	srv.HandlePrefix("/q/", h)
 	v1.RegisterGreeterHTTPServer(srv, greeter)
 	tracker.RegisterItemsHTTPServer(srv, items)
 	return srv
